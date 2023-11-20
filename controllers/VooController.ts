@@ -7,4 +7,7 @@ export class VooController{
     static resultsVoos(req: Request, res: Response){
         res.render("page/searchFlies");
     };
+    static escolhaValorPassagem(req: Request, res: Response){
+        res.render("page/escolhaValorPassagem");
+    };
 }

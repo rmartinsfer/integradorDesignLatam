@@ -32,3 +32,15 @@ body {
     text-align: center;
   }
   
+  .search-fly {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 800;
+}
+.search-fly a{
+    color: white;
+    text-decoration: none;
+}

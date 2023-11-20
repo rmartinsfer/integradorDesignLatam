@@ -5,3 +5,4 @@ export const router = express.Router();
 
 router.get("/buscaVoo", VooController.buscaVoo);
 router.get("/resultsVoos", VooController.resultsVoos);
+router.get("/escolhaValorPassagem", VooController.escolhaValorPassagem);
