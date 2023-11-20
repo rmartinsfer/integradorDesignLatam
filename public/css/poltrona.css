@@ -22,8 +22,6 @@ body, h1, div, span, button {
 .flight-segment {
   text-align: center;
   padding: 10px;
-  
-  
 }
 
 .route {
@@ -37,7 +35,11 @@ body, h1, div, span, button {
 .flight-selection {
   background-color: #fff;
   padding: 20px;
-  border-top: 3px solid #e8104b; /* Continuidade da barra vermelha */
+  border-radius: 20px;
+  border-top: 3px solid white; /* Continuidade da barra vermelha */
+  width: 300px;
+  height: 200px;
+  margin-top: 20px;
 }
 
 .route-info {
@@ -53,16 +55,30 @@ body, h1, div, span, button {
   border-radius: 4px;
   cursor: pointer;
 }
-
+/*Espaco entre o aviao e o ticket */
 .airplane {
-  padding: 20px;
+  margin-left: 250px;
+  margin-right: 250px;
   text-align: center;
 }
 
+
 .seating-chart {
-  max-width: 600px;
+  max-width: 800px; /* Aumento do tamanho máximo */
+  height: auto;
   margin: auto;
+  background-color: #f2f2f2; /* Cor de fundo do gráfico */
+  border: 5px solid black; /* Borda com cor */
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 320px;
+  padding-bottom: 150px;
+  border-top-left-radius: 580px;
+  border-top-right-radius: 580px;
+
+  box-shadow: 0 4px 8px rgba(17, 15, 15, 0.1); /* Sombra opcional para profundidade */
 }
+
 
 .row {
   display: flex;
@@ -70,14 +86,15 @@ body, h1, div, span, button {
   margin: 5px 0;
 }
 
+/* Poltronas do Aviao */
 .seat {
-  width: 30px;
-  height: 30px;
+  width: 60px;
+  height: 50px;
   margin: 0 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 3px solid #ccc;
+  border-radius: 10px;
   text-align: center;
-  line-height: 30px;
+  line-height: 50px;
 }
 
 .aisle {
@@ -89,9 +106,9 @@ body, h1, div, span, button {
   background-color: #fff;
   padding: 20px;
   margin-top: 20px;
-  margin-right: 100px;
-  margin-left: 900px;
   border-radius: 20px;
+  width: 300px;
+  height: 250px;
 }
 
 .passenger-alert {
@@ -134,6 +151,7 @@ body, h1, div, span, button {
   background-color: #e8104b; /* Fundo vermelho LATAM */
   color: white;
   padding: 10px;
+  border-radius: 4px;
   text-align: center;
 }
 
