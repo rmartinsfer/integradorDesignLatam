@@ -1,4 +1,15 @@
-body, h1, div, span, button {
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-image: url('https://passageirodeprimeira.com/wp-content/uploads/2021/04/passageirodeprimeira.com-latam-airlines-brasil-vai-retirar-todos-os-a350-de-sua-frota-latam-a350-scaled.jpg');
+  background-size: cover; /* Faz a imagem cobrir toda a tela */
+  background-repeat: no-repeat; /* Evita que a imagem se repita */
+  background-position: center center; /* Centraliza a imagem de fundo */
+  background-attachment: scroll;
+}
+
+h1, div, span, button {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
@@ -62,21 +73,20 @@ body, h1, div, span, button {
   text-align: center;
 }
 
-
+/*Desenho do aviao */
 .seating-chart {
-  max-width: 800px; /* Aumento do tamanho máximo */
+  max-width: 800px; /* Tamanho máximo */
   height: auto;
   margin: auto;
-  background-color: #f2f2f2; /* Cor de fundo do gráfico */
-  border: 5px solid black; /* Borda com cor */
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 320px;
-  padding-bottom: 150px;
-  border-top-left-radius: 580px;
-  border-top-right-radius: 580px;
-
-  box-shadow: 0 4px 8px rgba(17, 15, 15, 0.1); /* Sombra opcional para profundidade */
+  background-color: #f2f2f2; /* Cor de fundo */
+  border: 5px solid black; /* Borda */
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 450px;
+  padding-bottom: 50px;
+  border-top-left-radius: 45%; /* Raio da borda superior esquerda */
+  border-top-right-radius: 45%; /* Raio da borda superior direita */
+  box-shadow: 0 4px 8px rgba(17, 15, 15, 0.1); /* Sombra */
 }
 
 
@@ -88,8 +98,8 @@ body, h1, div, span, button {
 
 /* Poltronas do Aviao */
 .seat {
-  width: 60px;
-  height: 50px;
+  width: 45px;
+  height: 40px;
   margin: 0 5px;
   border: 3px solid #ccc;
   border-radius: 10px;
