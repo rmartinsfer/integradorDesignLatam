@@ -1,0 +1,148 @@
+body, h1, div, span, button {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  background-color: #002b7f; /* Cor do cabeçalho LATAM */
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.flight-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #fff;
+  border-bottom: 3px solid #e8104b; /* Barra vermelha característica da LATAM */
+}
+
+.flight-segment {
+  text-align: center;
+  padding: 10px;
+  
+  
+}
+
+.route {
+  font-weight: bold;
+}
+
+.flight-type {
+  color: #555;
+}
+
+.flight-selection {
+  background-color: #fff;
+  padding: 20px;
+  border-top: 3px solid #e8104b; /* Continuidade da barra vermelha */
+}
+
+.route-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.choose-later-btn {
+  background-color: #e8104b; /* Botão vermelho LATAM */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.airplane {
+  padding: 20px;
+  text-align: center;
+}
+
+.seating-chart {
+  max-width: 600px;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  margin: 5px 0;
+}
+
+.seat {
+  width: 30px;
+  height: 30px;
+  margin: 0 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+  line-height: 30px;
+}
+
+.aisle {
+  width: 20px;
+  flex: none;
+}
+
+.passenger-info {
+  background-color: #fff;
+  padding: 20px;
+  margin-top: 20px;
+  margin-right: 100px;
+  margin-left: 900px;
+  border-radius: 20px;
+}
+
+.passenger-alert {
+  background-color: #ffeb3b; /* Amarelo alerta */
+  padding: 10px;
+  margin-bottom: 20px;
+  border-left: 4px solid #ffc107; /* Borda esquerda do alerta */
+}
+
+.passenger-selection {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.seat-icon {
+  background-color: #002b7f; /* Azul escuro LATAM */
+  color: white;
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 4px;
+}
+
+.passenger-details {
+  font-size: 16px;
+}
+
+.next-flight {
+  background-color: #e8104b; /* Botão vermelho LATAM */
+  color: white;
+  padding: 10px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+}
+
+.final-price {
+  background-color: #e8104b; /* Fundo vermelho LATAM */
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.final-price span {
+  font-weight: bold;
+}
+
+.footer {
+  background-color: #f2f2f2; /* Fundo do rodapé */
+  padding: 20px;
+  text-align: center;
+}

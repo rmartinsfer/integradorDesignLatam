@@ -10,4 +10,7 @@ export class VooController{
     static escolhaValorPassagem(req: Request, res: Response){
         res.render("page/escolhaValorPassagem");
     };
+    static escolhaPoltrona(req: Request, res: Response){
+        res.render("page/escolhaPoltrona");
+    };
 }
