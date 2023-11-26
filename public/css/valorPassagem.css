@@ -35,7 +35,9 @@ label {
   font-weight: bold;
   margin-right: 5px;
 }
-
+.form-valor-passagem {
+  display: flex;
+}
 .info-detail {
   background-color: #f8f8f8;
   border: 1px solid #dcdcdc;

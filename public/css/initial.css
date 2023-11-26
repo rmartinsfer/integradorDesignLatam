@@ -2,6 +2,8 @@
 @import "./valorPassagem.css";
 @import "./poltrona.css";
 @import "./modal.css";
+@import "./boardingPass.css";
+@import "./purchase.css";
 
 * {
   margin: 0;

@@ -146,7 +146,6 @@ export class VooController {
         }));
       }
 
-      console.log(result);
       res.render("voo/escolhaValorPassagem", { voos: dados });
     } catch (error) {
       console.log(error);

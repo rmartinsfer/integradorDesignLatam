@@ -1,0 +1,46 @@
+.container-purchase {
+  width: 50%;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
+}
+
+.control-purchase h2 {
+  text-align: center;
+  color: #333;
+}
+
+.control-purchase label {
+  display: block;
+  margin-top: 10px;
+  color: #666;
+}
+
+.control-purchase input[type="text"],
+.control-purchase input[type="email"],
+.control-purchase input[type="tel"],
+.control-purchase input[type="number"],
+.control-purchase select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.control-purchase button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: #5cb85c;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.control-purchase button:hover {
+  background-color: #4cae4c;
+}

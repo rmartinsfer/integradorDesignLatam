@@ -1,42 +1,44 @@
+<header class="header">
+  <!-- Suponha que aqui haja uma barra de navegação e logotipo -->
+  <h1>Escolha seus assentos</h1>
+  <!-- Suponha que aqui haja botões ou links de navegação -->
+</header>
+<div class="flight-info">
+  <div class="flight-segment">
+    <div class="route">São Paulo a Rio de Janeiro</div>
+    <div class="flight-type">Voo de ida</div>
+  </div>
+  <div class="flight-segment">
+    <div class="route">Rio de Janeiro a São Paulo</div>
+    <div class="flight-type">Voo de volta</div>
+  </div>
+</div>
 
-  <header class="header">
-    <!-- Suponha que aqui haja uma barra de navegação e logotipo -->
-    <h1>Escolha seus assentos</h1>
-    <!-- Suponha que aqui haja botões ou links de navegação -->
-  </header>
-  <div class="flight-info">
-    <div class="flight-segment">
-      <div class="route">São Paulo a Rio de Janeiro</div>
-      <div class="flight-type">Voo de ida</div>
-    </div>
-    <div class="flight-segment">
-      <div class="route">Rio de Janeiro a São Paulo</div>
-      <div class="flight-type">Voo de volta</div>
-    </div>
+<div class="row">
+  <div class="column">
+    <section class="passenger-info">
+      <div class="passenger-alert">
+        <span>!</span>
+        Se você é cliente ElitePass, seus benefícios de assentos e bagagem vão
+        aparecer no momento de pagar.
+      </div>
+
+      <div class="passenger-selection">
+        <div class="seat-icon">--</div>
+        <div class="passenger-details">Adulto 1 - Sem seleção</div>
+      </div>
+
+      <button class="next-flight">Passar ao voo seguinte</button>
+      <br /><br />
+      <div class="final-price">
+        Preço final
+        <span>BRL 704,25</span>
+      </div>
+    </section>
+
   </div>
 
-  <div class="row">
-    <div class="column">
-      <section class="passenger-info">
-        <div class="passenger-alert">
-          <span>!</span> Se você é cliente ElitePass, seus benefícios de assentos e bagagem vão aparecer no momento de pagar.
-        </div>
-
-        <div class="passenger-selection">
-          <div class="seat-icon">--</div>
-          <div class="passenger-details">Adulto 1 - Sem seleção</div>
-        </div>
-
-        <button class="next-flight">Passar ao voo seguinte</button>
-        <br><br>
-        <div class="final-price">
-          Preço final <span>BRL 704,25</span>
-        </div>
-      </section>
-      
-    </div>
-
-    <div class="container">
+  <div class="container">
     <div class="column">
       <div class="airplane">
         <h2>Airbus 321</h2>
@@ -47,54 +49,16 @@
     </div>
   </div>
 
-    <section class="flight-selection">
-        <!-- Aqui você pode inserir detalhes adicionais da seleção do voo, se necessário -->
-        <div class="route-info">
-          <div>São Paulo a Rio de Janeiro</div>
-          <div>Rio de Janeiro a São Paulo</div>
-        </div>
-        <button class="choose-later-btn">Quero escolher assentos depois</button>
-      </section>
-  </div>
+  <section class="flight-selection">
+    <!-- Aqui você pode inserir detalhes adicionais da seleção do voo, se necessário -->
+    <div class="route-info">
+      <div>São Paulo a Rio de Janeiro</div>
+      <div>Rio de Janeiro a São Paulo</div>
+    </div>
+    <button class="choose-later-btn">Quero escolher assentos depois</button>
+  </section>
+</div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const seatingChartElement = document.getElementById('seating-chart');
-      const totalRows = 50; // Quantidade de filas
-      const seatsPerSide = 2; // Assentos por lado do corredor
-
-      for (let row = 1; row <= totalRows; row++) {
-        const rowDiv = document.createElement('div');
-        rowDiv.classList.add('row');
-
-        // Cria assentos para o lado esquerdo do corredor
-        for (let seat = 1; seat <= seatsPerSide; seat++) {
-          const seatDiv = document.createElement('div');
-          seatDiv.classList.add('seat');
-          seatDiv.textContent = `${row}${String.fromCharCode(64 + seat)}`; // Ex: '1A'
-          rowDiv.appendChild(seatDiv);
-        }
-
-        // Cria o corredor
-        const aisleDiv = document.createElement('div');
-        aisleDiv.classList.add('aisle');
-        rowDiv.appendChild(aisleDiv);
-
-        // Cria assentos para o lado direito do corredor
-        for (let seat = 1; seat <= seatsPerSide; seat++) {
-          const seatDiv = document.createElement('div');
-          seatDiv.classList.add('seat');
-          seatDiv.textContent = `${row}${String.fromCharCode(68 + seat - 1)}`; // Ex: '1D'
-          rowDiv.appendChild(seatDiv);
-        }
-
-        // Adiciona a fila completa ao gráfico de assentos
-        seatingChartElement.appendChild(rowDiv);
-      }
-    });
-  </script>
-
-  <footer class="footer">
-    <!-- Aqui você pode adicionar informações de rodapé -->
-  </footer>
-
+<footer class="footer">
+  <!-- Aqui você pode adicionar informações de rodapé -->
+</footer>

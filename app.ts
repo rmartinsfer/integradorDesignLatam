@@ -2,6 +2,8 @@ import express from "express";
 import { create } from "express-handlebars";
 import { routerVoo } from "./routes/vooRoutes";
 import { conn } from "./db/database";
+import { routerBilhete } from "./routes/bilheteRoutes";
+import { routerCompra } from "./routes/compraRoutes";
 
 const app = express();
 app.use(
@@ -24,6 +26,8 @@ app.use(express.static("public/"));
 app.use(express.static("helpers/"));
 
 app.use("/", routerVoo);
+app.use("/", routerBilhete);
+app.use("/", routerCompra);
 
 app.listen(3333, async () => {
   try {

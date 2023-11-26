@@ -23,28 +23,38 @@
   </div>
 
   <div class="fare-container">
-    <div class="fare-card light">
-      <h3 class="fare-title">Light</h3>
-      <p class="fare-price">BRL {{this.valor}}</p>
-      <button class="fare-button light">Continuar com a Light</button>
-    </div>
+    <form
+      class="form-valor-passagem"
+      action="/escolhePoltrona/{{this.idVoo}}"
+      method="GET"
+    >
+      <div class="fare-card light">
+        <h3 class="fare-title">Light</h3>
+        <p class="fare-price">BRL {{this.valor}}</p>
+        <input type="text" value="Light" name="option" hidden />
+        <button type="submit" class="fare-button light">Continuar com a Light</button>
+      </div>
 
-    <div class="fare-card">
-      <h3 class="fare-title">Standard</h3>
-      <p class="fare-price">BRL {{this.valorStandard}}</p>
-      <button class="fare-button">Escolher</button>
-    </div>
+      <div class="fare-card">
+        <h3 class="fare-title">Standard</h3>
+        <p class="fare-price">BRL {{this.valorStandard}}</p>
+        <input type="text" value="Standard" name="option" hidden />
+        <button type="submit" class="fare-button">Escolher</button>
+      </div>
 
-    <div class="fare-card">
-      <h3 class="fare-title">Full</h3>
-      <p class="fare-price">BRL {{this.valorFull}}</p>
-      <button class="fare-button">Escolher</button>
-    </div>
+      <div class="fare-card">
+        <h3 class="fare-title">Full</h3>
+        <p class="fare-price">BRL {{this.valorFull}}</p>
+        <input type="text" value="full" name="option" hidden />
+        <button type="submit" class="fare-button">Escolher</button>
+      </div>
 
-    <div class="fare-card premium">
-      <h3 class="fare-title">Premium Economy</h3>
-      <p class="fare-price">BRL {{this.valorPremiumEconomy}}</p>
-      <button class="fare-button">Escolher</button>
-    </div>
+      <div class="fare-card premium">
+        <h3 class="fare-title">Premium Economy</h3>
+        <p class="fare-price">BRL {{this.valorPremiumEconomy}}</p>
+        <input type="text" value="premium" name="option" hidden />
+        <button type="submit" class="fare-button">Escolher</button>
+      </div>
+    </form>
   </div>
 {{/each}}
