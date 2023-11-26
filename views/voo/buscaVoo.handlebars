@@ -1,0 +1,31 @@
+<div class="header"></div>
+<div class="main-content">
+  <div class="centered-box">
+    <div class="form-container">
+      <form action="/resultsVoos" method="GET">
+      <div class="dropdown-row">
+        <select class="dropdown" name="tipo" id="trip-type-dropdown">
+          <option>Só ida</option>
+        </select>
+        {{! <select class="dropdown">
+          <option>Economy</option>
+          <option>Business</option>
+        </select> }}
+        <select class="dropdown" name="qtdePassagem">
+          <option>1 passageiro</option>
+          {{! <option>2 passageiros</option> }}
+        </select>
+      </div>
+      <div class="input-row">
+        <input type="text" name="origem" placeholder="Origem" />
+        <input type="text" name="destino" placeholder="Destino" />
+        <button type="button" class="search-button" id="buscarTrechoButton">Buscar Trecho</button>
+        <input type="date" name="dataIda" />
+        {{! <input type="text" id="return-date" placeholder="Data da Volta" /> }}
+        <button class="search-button">Procurar</button>
+      </div>
+      </form>
+    </form>
+    </div>
+  </div>
+</div>

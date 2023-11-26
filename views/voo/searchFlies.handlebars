@@ -1,0 +1,25 @@
+<div class="header">
+  <h1>Urubu Airlines</h1>
+</div>
+
+<div class="search-panel">
+  <!-- Search form and options here -->
+</div>
+{{#each voos}}
+  <div class="flight-option">
+    <div class="flight-time">{{this.horarioSaida}}
+      {{this.origem}}
+      <img src="/img/flecha.png" alt="" />
+      {{this.horarioChegada}}
+      {{this.destino}}</div>
+    <div>Direct</div>
+    <div class="flight-price">BRL {{this.valor}}</div>
+    <button class="search-fly"><a
+        href="/escolhaValorPassagem/{{this.idVoo}}"
+      >Escolher</a></button>
+  </div>
+
+{{/each}}
+<div class="footer">
+  <p>Comece a Acumular Pontos</p>
+</div>

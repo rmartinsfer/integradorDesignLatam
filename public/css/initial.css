@@ -1,84 +1,98 @@
 @import "./resultsVoo.css";
 @import "./valorPassagem.css";
 @import "./poltrona.css";
+@import "./modal.css";
 
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
-
+button {
+  cursor: pointer;
+}
+.header {
+  background-color: #0f0050;
+  height: 10vh;
+}
 .main-content {
-    display: flex;
-    justify-content: center;
-    height: 100vh; /* Ajustado para ocupar 100% da altura da viewport */
+  display: flex;
+  justify-content: center;
+  height: 90vh; /* Ajustado para ocupar 100% da altura da viewport */
 }
 
 .centered-box {
-    background-color: #0F0050;
-    border-radius: 10px;
-    width: 83%;
-    height: 280px;
-    color: white;
-    padding: 30px;
-    margin-top: -5px;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
+  background-color: #0f0050;
+  border-radius: 10px;
+  width: 83%;
+  height: 280px;
+  color: white;
+  padding: 30px;
+  margin-top: -5px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
 }
 
 .form-container {
-    width: 85%;
-    height: 200px;
-    background-color: white;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    margin-top: 250px;
-    padding: 15px;
-    margin-left: auto;
-    margin-right: auto;
+  width: 85%;
+  background-color: white;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  margin-top: 250px;
+  padding: 15px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.dropdown-row, .input-row {
-    display: flex;
-    justify-content: flex-start;
-    margin-bottom: 20px;
+.dropdown-row,
+.input-row {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
 }
 
-.dropdown-row > *, .input-row > * {
-    margin-right: 10px; /* Aplica uma margem à direita de todos os elementos filhos */
+.dropdown-row > *,
+.input-row > * {
+  margin-right: 10px; /* Aplica uma margem à direita de todos os elementos filhos */
 }
 
-.dropdown-row > :last-child, .input-row > :last-child {
-    margin-right: 0; /* Remove a margem à direita do último elemento filho */
+.dropdown-row > :last-child,
+.input-row > :last-child {
+  margin-right: 0; /* Remove a margem à direita do último elemento filho */
 }
 
-
-.dropdown, input {
-    padding: 10px;
-    margin-right: 8px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+.dropdown,
+input {
+  padding: 10px;
+  margin-right: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
 .search-button {
-    background-color: #E8104B;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 10px;
-    font-weight: 800;
+  background-color: #e8104b;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 800;
 }
-.search-button a{
-    color: white;
-    text-decoration: none;
+.search-button a {
+  color: white;
+  text-decoration: none;
 }
 
-@media (max-width: 600px) {
-    .dropdown-row, .input-row {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    .dropdown, input, .search-button {
-        width: 100%;
-        margin-bottom: 10px;
-    }
+@media (max-width: 1200px) {
+  .dropdown-row,
+  .input-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .dropdown,
+  input,
+  .search-button {
+    width: 100%;
+    background: blue;
+    margin-bottom: 10px;
+  }
 }
