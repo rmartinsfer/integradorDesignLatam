@@ -4,68 +4,82 @@
   <!-- Suponha que aqui haja botões ou links de navegação -->
 </header>
 {{#each voo}}
-<div class="flight-info">
-  <div class="flight-segment">
-    <div class="route">{{this.origem}} a {{this.destino}}</div>
-    <div class="flight-type">Voo de ida</div>
-  </div>
-  {{!-- <div class="flight-segment">
+  <div class="flight-info">
+    <div class="flight-segment">
+      <div class="route">{{this.origem}} a {{this.destino}}</div>
+      <div class="flight-type">Voo de ida</div>
+    </div>
+    {{! <div class="flight-segment">
     <div class="route">Rio de Janeiro a São Paulo</div>
     <div class="flight-type">Voo de volta</div>
-  </div> --}}
-</div>
-
-<div class="row">
-  <div class="column">
-    <section class="passenger-info">
-      <div class="passenger-alert">
-        <span>!</span>
-        Se você é cliente ElitePass, seus benefícios de assentos e bagagem vão
-        aparecer no momento de pagar.
-      </div>
-
-      <div class="passenger-selection">
-        <div class="seat-icon">--</div>
-        <div class="passenger-details">Adulto 1 - Sem seleção</div>
-      </div>
-
-      <button class="next-flight">Passar ao voo seguinte</button>
-      <br /><br />
-      <div class="final-price">
-        Preço final
-        <span>BRL {{this.valor}}</span>
-      </div>
-    </section>
-
+  </div> }}
   </div>
-{{/each}}
-  <div class="container">
+
+  <div class="row">
     <div class="column">
-      <div class="airplane">
-        <h2>Airbus 321</h2>
-          <div class="seating-chart" id="seating-chart">
-            <div class="control-grid">
-            {{#each mapa}}
-              <div class="seat">
-              {{this.referencia}}    
-              </div>       
-            {{/each}}
-            </div>
-          </div>
-      </div>
+      <section class="passenger-info">
+        <div class="passenger-alert">
+          <span>!</span>
+          Se você é cliente ElitePass, seus benefícios de assentos e bagagem vão
+          aparecer no momento de pagar.
+        </div>
+
+        <div class="passenger-selection">
+          <div class="seat-icon">--</div>
+          <div class="passenger-details">Adulto 1 - Sem seleção</div>
+        </div>
+
+        <button class="next-flight">Passar ao voo seguinte</button>
+        <br /><br />
+        <div class="final-price">
+          Preço final
+          <span>BRL {{this.valor}}</span>
+        </div>
+      </section>
     </div>
   </div>
 
-  <section class="flight-selection">
-    <!-- Aqui você pode inserir detalhes adicionais da seleção do voo, se necessário -->
-    <div class="route-info">
-      <div>São Paulo a Rio de Janeiro</div>
-      <div>Rio de Janeiro a São Paulo</div>
+{{/each}}
+<div class="container">
+  <div class="column">
+    <div class="airplane">
+      <h2>Airbus 321</h2>
+      <div class="seating-chart" id="seating-chart">
+        <div class="control-grid">
+          {{#each mapa}}
+            <button
+              class="seat"
+              id="idPoltrona"
+              onclick="mudarCorPoltrona(this)"
+              name="poltronaEscolhida"
+            >
+              {{this.referencia}}
+            </button>
+          {{/each}}
+        </div>
+      </div>
     </div>
-    <button class="choose-later-btn">Quero escolher assentos depois</button>
-  </section>
+  </div>
 </div>
 
-<footer class="footer">
+<section class="flight-selection">
+  <!-- Aqui você pode inserir detalhes adicionais da seleção do voo, se necessário -->
+  {{#each voo}}
+    <div class="route-info">
+      <div>{{this.origem}} a {{this.destino}}</div>
+      {{!-- <div>{{this.destino}} a {{this.origem}} </div> --}}
+    </div>
+  {{/each}}
+
+  <form action="/purchase">
+    <button class="choose-later-btn">Confirmar Assento(s)</button>
+  </form>
+</section>
+
+<script>
+  function mudarCorPoltrona(poltrona){ poltrona.classList.toggle("clicado"); }
+</script>
+
+{{! <footer class="footer">
   <!-- Aqui você pode adicionar informações de rodapé -->
-</footer>
+</footer> }}

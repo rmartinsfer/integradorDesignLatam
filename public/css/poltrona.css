@@ -105,6 +105,14 @@ button {
   line-height: 50px;
 }
 
+.seat:hover {
+  background-color: #d0d0d0; /* Cor ao passar o mouse por cima */
+}
+
+.seat.clicado {
+  background-color: #7abd38; /* Cor ao clicar no botão */
+}
+
 .aisle {
   width: 20px;
   flex: none;
