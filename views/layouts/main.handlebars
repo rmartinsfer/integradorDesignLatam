@@ -21,52 +21,5 @@
       new DataTable('#example');
 
     </script>
-    {{!-- <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const seatingChartElement = document.getElementById('seating-chart');
-      const totalRows = 25; // Quantidade de filas
-      const seatsPerSide = 2; // Assentos por lado do corredor
-
-      for (let row = 1; row <= totalRows; row++) {
-        const rowDiv = document.createElement('div');
-        rowDiv.classList.add('row');
-
-        // Cria assentos para o lado esquerdo do corredor
-        for (let seat = 1; seat <= seatsPerSide; seat++) {
-          const seatDiv = document.createElement('div');
-          seatDiv.classList.add('seat');
-          seatDiv.textContent = `${row}${String.fromCharCode(64 + seat)}`; // Ex: '1A'
-          rowDiv.appendChild(seatDiv);
-        }
-
-        // Cria o corredor
-        const aisleDiv = document.createElement('div');
-        aisleDiv.classList.add('aisle');
-        rowDiv.appendChild(aisleDiv);
-
-        // Cria assentos para o lado direito do corredor
-        for (let seat = 1; seat <= seatsPerSide; seat++) {
-          const seatDiv = document.createElement('div');
-          seatDiv.classList.add('seat');
-          seatDiv.textContent = `${row}${String.fromCharCode(68 + seat - 1)}`; // Ex: '1D'
-          rowDiv.appendChild(seatDiv);
-        }
-
-        // Adiciona a fila completa ao gráfico de assentos
-        seatingChartElement.appendChild(rowDiv);
-      }
-    });
-    </script> --}}
-    <script>
-      import Handlebars from 'express-handlebars'
-     Handlebars.registerHelper('isMultipleOf25', function(index, options) {
-    if ((index + 1) % 25 === 0) {
-      return options.fn(this);
-    } else {
-      return options.inverse(this);
-    }
-  });
-    </script>
-
   </body>
 </html>

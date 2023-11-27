@@ -44,15 +44,14 @@
       <div class="airplane">
         <h2>Airbus 321</h2>
           <div class="seating-chart" id="seating-chart">
-         {{#each mapa}}
-          {{#if isMultipleOf25 @index}}
-            </div><div class="column">
-          {{/if}}
-          <div class="seat">
-            {{this.referencia}}
+            <div class="control-grid">
+            {{#each mapa}}
+              <div class="seat">
+              {{this.referencia}}    
+              </div>       
+            {{/each}}
+            </div>
           </div>
-        {{/each}}
-      </div>
       </div>
     </div>
   </div>

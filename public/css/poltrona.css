@@ -77,15 +77,14 @@ button {
 /*Desenho do aviao */
 .seating-chart {
   display: grid;
+  width: 1800px;
   grid-template-columns: 4fr;
-  max-width: 800px; /* Tamanho máximo */
   height: auto;
-  margin: auto;
   background-color: #f2f2f2; /* Cor de fundo */
   border: 5px solid black; /* Borda */
-  padding: 250px 40px 50px 40px;
+  padding: 50px 50px 50px 40px;
   border-top-left-radius: 45%; /* Raio da borda superior esquerda */
-  border-top-right-radius: 45%; /* Raio da borda superior direita */
+  border-bottom-left-radius: 45%; /* Raio da borda superior direita */
   box-shadow: 0 4px 8px rgba(17, 15, 15, 0.1); /* Sombra */
 }
 
@@ -172,4 +171,10 @@ button {
   background-color: #f2f2f2; /* Fundo do rodapé */
   padding: 20px;
   text-align: center;
+}
+.control-grid {
+  display: grid;
+  grid-template-columns: repeat(25, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-row-gap: 10px;
 }
