@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 export class CompraController {
-  static compra(req: Request, res: Response) {
+  static purchase(req: Request, res: Response) {
     res.render("compra/purchase");
   }
+  static async purchaseSave(req: Request, res: Response) {}
 }

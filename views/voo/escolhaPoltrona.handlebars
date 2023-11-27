@@ -3,15 +3,16 @@
   <h1>Escolha seus assentos</h1>
   <!-- Suponha que aqui haja botões ou links de navegação -->
 </header>
+{{#each voo}}
 <div class="flight-info">
   <div class="flight-segment">
-    <div class="route">São Paulo a Rio de Janeiro</div>
+    <div class="route">{{this.origem}} a {{this.destino}}</div>
     <div class="flight-type">Voo de ida</div>
   </div>
-  <div class="flight-segment">
+  {{!-- <div class="flight-segment">
     <div class="route">Rio de Janeiro a São Paulo</div>
     <div class="flight-type">Voo de volta</div>
-  </div>
+  </div> --}}
 </div>
 
 <div class="row">
@@ -32,19 +33,26 @@
       <br /><br />
       <div class="final-price">
         Preço final
-        <span>BRL 704,25</span>
+        <span>BRL {{this.valor}}</span>
       </div>
     </section>
 
   </div>
-
+{{/each}}
   <div class="container">
     <div class="column">
       <div class="airplane">
         <h2>Airbus 321</h2>
-        <div class="seating-chart" id="seating-chart">
-          <!-- Os assentos serão inseridos aqui pelo JavaScript -->
-        </div>
+          <div class="seating-chart" id="seating-chart">
+         {{#each mapa}}
+          {{#if isMultipleOf25 @index}}
+            </div><div class="column">
+          {{/if}}
+          <div class="seat">
+            {{this.referencia}}
+          </div>
+        {{/each}}
+      </div>
       </div>
     </div>
   </div>

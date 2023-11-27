@@ -3,7 +3,9 @@ type Seat = {
   column: string;
   isAisle: boolean;
 };
-
+Handlebars.registerHelper("geraAssento", function (context, options) {
+  return generateSeats(totalRows, columns);
+});
 function generateSeats(rows: number, columns: string[]): Seat[] {
   let seats: Seat[] = [];
 
@@ -31,8 +33,8 @@ function generateSeats(rows: number, columns: string[]): Seat[] {
 }
 
 // Configuração típica de colunas de assentos de um Airbus 321 em classe econômica
-const columns = ["A", "B", "C", "D", "E", "F"];
-const totalRows = 50;
+const columns = ["A", "B", "C", "D"];
+const totalRows = 25;
 
 const airplaneSeats = generateSeats(totalRows, columns);
 

@@ -31,7 +31,7 @@
 }
 .right-section {
   flex-basis: 35%;
-  background: url("map-overlay.png") no-repeat center center;
+  /* background: url("map-overlay.png") no-repeat center center; */
   background-size: cover;
 }
 .airline-logo {
