@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { executarSql } from "../db/database";
+import { executarSql, retornarDados } from "../db/database";
 export class CompraController {
   static purchase(req: Request, res: Response) {
     const idVoo = req.body.id;
@@ -18,6 +18,7 @@ export class CompraController {
   }
   static async purchaseSave(req: Request, res: Response) {
     let objeto = "Venda";
+    const idVoo = req.params.id;
     const nome = req.body.nome;
     const email = req.body.email;
     const cpf = req.body.cpf;
@@ -28,12 +29,28 @@ export class CompraController {
                 (ID_VENDA, DATA_VENDA, TIPO_PAGAMENTO) 
                 VALUES (SEQ_VENDA.NEXTVAL, TO_DATE(SYSDATE), :1)`;
 
-    const dados = [ 
-      tipoPagamento
-    ]
+    const selectSql = `SELECT ID_VENDA FROM VENDA ORDER BY ID_VENDA DESC FETCH FIRST 1 ROW ONLY`;
+
+    const dados = [tipoPagamento];
+    let dadosVenda;
 
     try {
       executarSql(sql, dados, objeto);
+
+      const result = (await retornarDados(
+        selectSql,
+        [],
+        "Venda"
+      )) as string[][];
+
+      if (result) {
+        dadosVenda = result.map((item) => ({
+          idVenda: item[0],
+        }));
+      }
+      if (dadosVenda) {
+        console.log(dadosVenda[0].idVenda);
+      }
     } catch (error) {
       console.log(error);
     }
