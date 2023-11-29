@@ -1,7 +1,5 @@
 <header class="header">
-  <!-- Suponha que aqui haja uma barra de navegação e logotipo -->
   <h1>Escolha seus assentos</h1>
-  <!-- Suponha que aqui haja botões ou links de navegação -->
 </header>
 {{#each voo}}
   <div class="flight-info">
@@ -28,7 +26,6 @@
           <div class="seat-icon">--</div>
           <div class="passenger-details">Adulto 1 - Sem seleção</div>
         </div>
-
         <button class="next-flight">Passar ao voo seguinte</button>
         <br /><br />
         <div class="final-price">
@@ -38,8 +35,8 @@
       </section>
     </div>
   </div>
-
 {{/each}}
+
 <div class="container">
   <div class="column">
     <div class="airplane">
@@ -49,7 +46,7 @@
           {{#each mapa}}
             <button
               class="seat"
-              id="idPoltrona"
+              id="{{this.idMapa}}"
               onclick="mudarCorPoltrona(this)"
               name="poltronaEscolhida"
             >
@@ -70,14 +67,27 @@
       {{!-- <div>{{this.destino}} a {{this.origem}} </div> --}}
     </div>
   {{/each}}
-
-  <form action="/purchase">
-    <button class="choose-later-btn">Confirmar Assento(s)</button>
-  </form>
+  {{#each voo}}
+    <form action="/purchase/{{this.idVoo}}" id="purchaseForm">
+      <button class="choose-later-btn">Confirmar Assento(s)</button>
+    </form>
+  {{/each}}
 </section>
 
 <script>
-  function mudarCorPoltrona(poltrona){ poltrona.classList.toggle("clicado"); }
+  let assentosSelecionados = []; function mudarCorPoltrona(poltrona) {
+  poltrona.classList.toggle("clicado"); const assentoIndex =
+  assentosSelecionados.indexOf(poltrona.id); if (assentoIndex === -1) {
+  assentosSelecionados.push(poltrona.id); } else {
+  assentosSelecionados.splice(assentoIndex, 1); } } document
+  .getElementById("purchaseForm") .addEventListener("submit", function (event) {
+  if (assentosSelecionados.length === 0) { event.preventDefault(); } else {
+  const inputAssentos = document.createElement("input");
+  inputAssentos.setAttribute("type", "hidden");
+  inputAssentos.setAttribute("name", "assentosSelecionados");
+  inputAssentos.setAttribute("value", JSON.stringify(assentosSelecionados));
+  this.appendChild(inputAssentos); } });
+
 </script>
 
 {{! <footer class="footer">
