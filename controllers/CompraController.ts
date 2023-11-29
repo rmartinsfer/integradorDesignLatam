@@ -32,6 +32,7 @@ export class CompraController {
     const selectSql = `SELECT ID_VENDA FROM VENDA ORDER BY ID_VENDA DESC FETCH FIRST 1 ROW ONLY`;
 
     const dados = [tipoPagamento];
+    
     let dadosVenda;
 
     try {
@@ -49,7 +50,7 @@ export class CompraController {
         }));
       }
       if (dadosVenda) {
-        console.log(dadosVenda[0].idVenda);
+        console.log(dadosVenda[0].idVenda); // última venda realizada
       }
     } catch (error) {
       console.log(error);
