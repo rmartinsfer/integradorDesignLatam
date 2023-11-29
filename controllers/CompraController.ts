@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { executarSql } from "../db/database";
 export class CompraController {
   static purchase(req: Request, res: Response) {
     const idVoo = req.body.id;
@@ -15,5 +16,28 @@ export class CompraController {
     }
     res.render("compra/purchase");
   }
-  static async purchaseSave(req: Request, res: Response) {}
+  static async purchaseSave(req: Request, res: Response) {
+    let objeto = "Venda";
+    const nome = req.body.nome;
+    const email = req.body.email;
+    const cpf = req.body.cpf;
+    const telefone = req.body.telefone;
+    const tipoPagamento = req.body.pagamento;
+
+    const sql = `INSERT INTO VENDA
+                (ID_VENDA, DATA_VENDA, TIPO_PAGAMENTO) 
+                VALUES (SEQ_VENDA.NEXTVAL, TO_DATE(SYSDATE), :1)`;
+
+    const dados = [ 
+      tipoPagamento
+    ]
+
+    try {
+      executarSql(sql, dados, objeto);
+    } catch (error) {
+      console.log(error);
+    }
+
+    res.render("bilhete/boardingPass");
+  }
 }
