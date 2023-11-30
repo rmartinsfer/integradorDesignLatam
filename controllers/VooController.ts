@@ -187,7 +187,7 @@ WHERE
       let dadosMapa;
       if (result) {
         dadosMapa = result.map((item) => ({
-          idMapa: item[0],
+          idMapa: parseInt(item[0]),
           referencia: item[1],
           status: item[2],
           idVoo: item[3],

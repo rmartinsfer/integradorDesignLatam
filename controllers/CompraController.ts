@@ -20,8 +20,8 @@ export class CompraController {
     const tipoPagamento = req.body.pagamento;
     const idVoo = req.params.id;
     const dataVenda = new Date();
-    let assentosStrings: string[] = req.body.assentos;
-
+    let assentosStrings = req.body.assentos;
+    console.log(assentosStrings);
     try {
       //salvando a venda
       const sqlVenda = `INSERT INTO VENDA 
