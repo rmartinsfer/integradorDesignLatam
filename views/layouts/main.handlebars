@@ -16,9 +16,26 @@
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.8/jquery.inputmask.min.js" integrity="sha512-efAcjYoYT0sXxQRtxGY37CKYmqsFVOIwMApaEbrxJr4RwqVVGw8o+Lfh/+59TU07+suZn1BWq4fDl5fdgyCNkw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <script>
       $().DataTable();
       new DataTable('#example');
+    </script>
+    <script>
+      $(document).ready(function() {
+  const inputTelefone = document.getElementById("telefone");
+  if (inputTelefone) {
+    $(inputTelefone).inputmask({"mask": ["(99) 9999-9999", "(99) 99999-9999"], "placeholder": " "}); // Aplica a máscara ao campo de telefone
+  }
+});
+
+$(document).ready(function () {
+  const inputCPF = document.getElementById("cpf");
+  if (inputCPF) {
+    $(inputCPF).inputmask("999.999.999-99", { placeholder: " " });
+  }
+});
 
     </script>
   </body>

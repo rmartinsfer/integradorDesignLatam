@@ -12,18 +12,17 @@
     <input
       type="tel"
       id="telefone"
+      pattern="\([0-9]{2}\) [0-9]{4,5}-[0-9]{4}"
       name="telefone"
       required
     />
 
     <label for="cpf">CPF:</label>
-    <input type="text" id="cpf" name="cpf" value="CPF" required />
-
-    <label for="endereco">Endereço:</label>
     <input
       type="text"
-      id="endereco"
-      name="endereco"
+      id="cpf"
+      name="cpf"
+      placeholder="Ex: 123.456.789-01"
       required
     />
 

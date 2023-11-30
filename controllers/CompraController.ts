@@ -1,8 +1,17 @@
-import { Request, Response } from "express";
+import e, { Request, Response } from "express";
 import { executarSql, retornarDados } from "../db/database";
 export class CompraController {
   static purchase(req: Request, res: Response) {
-    const idVoo = req.body.id;
+    res.render("compra/purchase");
+  }
+  static async purchaseSave(req: Request, res: Response) {
+    const nome = req.body.nome;
+    const email = req.body.email;
+    const cpf = req.body.cpf;
+    const telefone = req.body.telefone;
+    const tipoPagamento = req.body.pagamento;
+    const idVoo = req.params.id;
+    console.log(nome, email, cpf, telefone, idVoo);
 
     let poltronas = req.query.assentosSelecionados || [];
 
@@ -14,16 +23,6 @@ export class CompraController {
     ) {
       const assentos = poltronas[0].match(/\d+/g); // Extrai os números usando expressão regular
     }
-    res.render("compra/purchase");
-  }
-  static async purchaseSave(req: Request, res: Response) {
-    let objeto = "Venda";
-    const idVoo = req.params.id;
-    const nome = req.body.nome;
-    const email = req.body.email;
-    const cpf = req.body.cpf;
-    const telefone = req.body.telefone;
-    const tipoPagamento = req.body.pagamento;
 
     const sql = `INSERT INTO VENDA
                 (ID_VENDA, DATA_VENDA, TIPO_PAGAMENTO) 
@@ -32,11 +31,11 @@ export class CompraController {
     const selectSql = `SELECT ID_VENDA FROM VENDA ORDER BY ID_VENDA DESC FETCH FIRST 1 ROW ONLY`;
 
     const dados = [tipoPagamento];
-    
+
     let dadosVenda;
 
     try {
-      executarSql(sql, dados, objeto);
+      executarSql(sql, dados, "Venda");
 
       const result = (await retornarDados(
         selectSql,
