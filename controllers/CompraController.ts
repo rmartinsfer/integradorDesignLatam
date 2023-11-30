@@ -1,10 +1,16 @@
 import e, { Request, Response } from "express";
 import { executarSql, retornarDados } from "../db/database";
+import { error } from "console";
+import { DATE } from "oracledb";
+import { cp } from "fs";
 export class CompraController {
   static purchase(req: Request, res: Response) {
-    const idVoo = req.params.id; // Aqui você obterá o número após /purchase/
-    console.log(idVoo); // Isso mostrará o número na console do servidor
-    res.render("compra/purchase", { idVoo: idVoo });
+    const idVoo = req.params.id;
+    const assentosSelecionados = req.query.assentosSelecionados;
+    res.render("compra/purchase", {
+      idVoo: idVoo,
+      assentosSelecionados: assentosSelecionados,
+    });
   }
   static async purchaseSave(req: Request, res: Response) {
     const nome = req.body.nome;
@@ -13,9 +19,55 @@ export class CompraController {
     const telefone = req.body.telefone;
     const tipoPagamento = req.body.pagamento;
     const idVoo = req.params.id;
-    console.log(nome, email, cpf, telefone, tipoPagamento, idVoo);
+    const dataVenda = new Date();
+    let assentosStrings: string[] = req.body.assentos;
 
-    let poltronas = req.query.assentosSelecionados || [];
+    try {
+      //salvando a venda
+      const sqlVenda = `INSERT INTO VENDA 
+       (ID_VENDA, DATA_VENDA, TIPO_PAGAMENTO)
+       VALUES
+       (SEQ_VENDA.NEXTVAL, :1, :2)`;
+
+      const dadosVenda = [dataVenda, tipoPagamento];
+
+      if (await executarSql(sqlVenda, dadosVenda, "tabela venda")) {
+        //recuperando o último id salvo da tabela venda
+        const selectSql = `SELECT MAX(ID_VENDA) FROM VENDA`;
+        const resultVenda: any = await retornarDados(
+          selectSql,
+          [],
+          "ID da Venda"
+        );
+
+        if (resultVenda && resultVenda.length > 0) {
+          const idVenda = resultVenda[0][0];
+          //salvar o ticket
+          const sqlTicket = `INSERT INTO TICKET(ID_TICKET,ID_VENDA,ID_VOO,NOME,EMAIL,TELEFONE,CPF)
+          VALUES (SEQ_TICKET.NEXTVAL,:1,:2,:3,:4,:5,:6)`;
+
+          const dadosTicket = [idVenda, idVoo, nome, email, telefone, cpf];
+
+          if (await executarSql(sqlTicket, dadosTicket, "tabela ticket")) {
+            //pegando id do último mapa de assento
+            const selectSql = `SELECT MAX(ID_TICKET) FROM TICKET`;
+            const resultTicket: any = await retornarDados(
+              selectSql,
+              [],
+              "ID do assento"
+            );
+            if (resultTicket && resultTicket.length > 0) {
+              const idTicket = resultTicket[0][0];
+              //sql mapa de assentos
+              //const sqlMapa = `UPDATE MAPA_ASSENTO SET STATUS = 'ocupado', ID_TICKET = '${idTicket}' WHERE ID_MAPA_ASSENTO = '${assentos}' `;
+              //executarSql(sqlMapa, [], "Mapa de assentos");
+            }
+          }
+        }
+      }
+    } catch (error) {
+      console.log(error);
+    }
 
     res.render("bilhete/boardingPass");
   }

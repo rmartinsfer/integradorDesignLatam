@@ -37,5 +37,3 @@ const columns = ["A", "B", "C", "D"];
 const totalRows = 25;
 
 const airplaneSeats = generateSeats(totalRows, columns);
-
-console.log(airplaneSeats);
