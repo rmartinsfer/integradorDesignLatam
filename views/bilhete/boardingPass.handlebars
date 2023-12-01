@@ -1,41 +1,46 @@
 <div class="container-boarding">
-  <div class="boarding-pass" id="imprimir-pdf">
-    <div class="section left-section">
-      <div class="airline-logo">Airline</div>
-      <div class="board-info">
-        <div><span>Name of Passenger:</span> John Doe</div>
-        <div><span>From:</span> JFK</div>
-        <div><span>To:</span> LHR</div>
-        <div><span>Date:</span> 2023-11-25</div>
-        <div><span>Time:</span> 10:00 AM</div>
-        <div><span>Flight:</span> AB1234</div>
-        <div><span>Seat:</span> 21A</div>
-        <div><span>Gate:</span> D4</div>
+  {{#each dados}}
+    <div class="boarding-pass">
+      <div class="section left-section" id="imprimir-pdf">
+        <div class="airline-logo">Airline</div>
+        <div class="board-info">
+          <div><span>Name of Passenger:</span>{{this.nome}}</div>
+          <div><span>From:</span>{{this.origem}}</div>
+          <div><span>To:</span>{{this.destino}}</div>
+          <div><span>Date:</span>{{this.dataSaida}}</div>
+          <div><span>Time:</span> 10:00 AM</div>
+          <div><span>Flight:</span>{{idVoo}}</div>
+          <div><span>Seat:</span>{{referencia}}</div>
+          <div><span>Gate:</span> D4</div>
+        </div>
+        <div class="footer-info">Gate closes 45 minutes before departure</div>
       </div>
-      <div class="footer-info">Gate closes 45 minutes before departure</div>
-    </div>
-    <div class="section right-section">
-      <div class="airline-logo">Airline</div>
-      <div class="board-info">
-        <div><span>Name of Passenger:</span> John Doe</div>
-        <div><span>Date:</span> 2023-11-25</div>
-        <div><span>From:</span> JFK</div>
-        <div><span>To:</span> LHR</div>
-        <div><span>Time:</span> 10:00 AM</div>
-        <div><span>Flight:</span> AB1234</div>
+      <div class="section right-section">
+        <div class="airline-logo">Airline</div>
+        <div class="board-info">
+          <input type="text" id="nome{{@index}}" hidden value="{{this.nome}}" />
+          <div><span>Name of Passenger:</span>{{this.nome}}</div>
+          <div><span>Date:</span>{{this.dataSaida}}</div>
+          <div><span>From:</span> {{ths.origem}}</div>
+          <div><span>To:</span> {{this.destino}}</div>
+          <div><span>Time:</span> 10:00 AM</div>
+          <div><span>Flight:</span> {{this.idVoo}}</div>
+        </div>
+        <div class="barcode"></div>
+        <div class="footer-info">Have a nice trip!</div>
       </div>
-      <div class="barcode"></div>
-      <div class="footer-info">Have a nice trip!</div>
     </div>
-  </div>
+  {{/each}}
   <button type="button" id="btnImprimir" class="search-button">Imprimir</button>
 </div>
 <script>
-  const btnGenerate=document.querySelector("#btnImprimir");
-  btnGenerate.addEventListener("click",()=>{ const
-  content=document.querySelector("#imprimir-pdf"); const options={
-  margin:[10,10,10,10], filename:"bilhete.pdf", html2canvas:{scale:2},
-  jsPDF:{unit:"mm",format:"a4",orientation:"portrait"}, };
-  html2pdf().set(options).from(content).save(); })
+  const btnGenerate = document.querySelector("#btnImprimir");
+  btnGenerate.addEventListener("click", () => { const boardingPasses =
+  document.querySelectorAll(".boarding-pass"); boardingPasses.forEach((pass,
+  index) => { const nome = pass.querySelector(`#nome${index}`); const content =
+  pass.querySelector(".left-section"); const options = { margin: [10, 10, 10,
+  10], filename: `${nome.value}.pdf`, html2canvas: { scale: 2 }, jsPDF: { unit:
+  "mm", format: "a4", orientation: "portrait" }, };
+  html2pdf().set(options).from(content).save(); }); });
 
 </script>

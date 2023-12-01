@@ -1,9 +1,6 @@
 import e, { Request, Response } from "express";
 import { executarSql, retornarDados } from "../db/database";
-import { error } from "console";
-import { DATE } from "oracledb";
-import { cp } from "fs";
-import { type } from "os";
+
 export class CompraController {
   static purchase(req: Request, res: Response) {
     const idVoo = req.params.id;
