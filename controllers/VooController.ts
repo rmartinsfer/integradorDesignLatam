@@ -192,6 +192,7 @@ WHERE
           status: item[2],
           idVoo: item[3],
           idTicket: item[4],
+          ocupado: item[2] === "ocupado",
         }));
       }
       let result2 = (await retornarDados(

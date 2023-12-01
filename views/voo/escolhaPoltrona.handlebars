@@ -44,14 +44,20 @@
       <div class="seating-chart" id="seating-chart">
         <div class="control-grid">
           {{#each mapa}}
-            <button
-              class="seat"
-              id="{{this.idMapa}}"
-              onclick="mudarCorPoltrona(this)"
-              name="poltronaEscolhida"
-            >
-              {{this.referencia}}
-            </button>
+            {{#if this.ocupado}}
+              <button class="seat ocupado" disabled>
+                {{this.referencia}}
+              </button>
+            {{else}}
+              <button
+                class="seat"
+                id="{{this.idMapa}}"
+                onclick="mudarCorPoltrona(this)"
+                name="poltronaEscolhida"
+              >
+                {{this.referencia}}
+              </button>
+            {{/if}}
           {{/each}}
         </div>
       </div>

@@ -8,7 +8,7 @@ export class CompraController {
   static purchase(req: Request, res: Response) {
     const idVoo = req.params.id;
     const assentosSelecionados = req.query.assentosSelecionados;
-    console.log(assentosSelecionados);
+
     res.render("compra/purchase", {
       idVoo: idVoo,
       assentosSelecionados: assentosSelecionados,
