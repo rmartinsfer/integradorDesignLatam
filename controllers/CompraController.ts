@@ -67,8 +67,10 @@ export class CompraController {
             if (resultTicket && resultTicket.length > 0) {
               const idTicket = resultTicket[0][0];
               //sql mapa de assentos
-              const sqlMapa = `UPDATE MAPA_ASSENTO SET STATUS = 'ocupado', ID_TICKET = '${idTicket}' WHERE ID_MAPA_ASSENTO = '${numeros}' `;
-              executarSql(sqlMapa, [], "Mapa de assentos");
+              for (let i = 0; i < numeros.length; i++) {
+                const sqlMapa = `UPDATE MAPA_ASSENTO SET STATUS = 'ocupado', ID_TICKET = '${idTicket}' WHERE ID_MAPA_ASSENTO = '${numeros[i]}' `;
+                executarSql(sqlMapa, [], "Mapa de assentos");
+              }
             }
           }
         }
