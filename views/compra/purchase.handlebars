@@ -3,12 +3,7 @@
   <form class="control-purchase" action="/purchase/{{idVoo}}" method="POST">
 
     <h2>Confirmação de Pagamento</h2>
-    <input
-      type="number"
-      name="assentos"
-      value="{{assentosSelecionados}}"
-      hidden
-    />
+    <input type="text" name="assentos" value={{assentosSelecionados}} />
     <label for="nome">Nome Completo:</label>
     <input type="text" id="nome" name="nome" required />
 

@@ -3,10 +3,12 @@ import { executarSql, retornarDados } from "../db/database";
 import { error } from "console";
 import { DATE } from "oracledb";
 import { cp } from "fs";
+import { type } from "os";
 export class CompraController {
   static purchase(req: Request, res: Response) {
     const idVoo = req.params.id;
     const assentosSelecionados = req.query.assentosSelecionados;
+    console.log(assentosSelecionados);
     res.render("compra/purchase", {
       idVoo: idVoo,
       assentosSelecionados: assentosSelecionados,
@@ -21,7 +23,13 @@ export class CompraController {
     const idVoo = req.params.id;
     const dataVenda = new Date();
     let assentosStrings = req.body.assentos;
-    console.log(assentosStrings);
+    let numeros: number[] = [];
+
+    let numerosStrings = assentosStrings.match(/\d+/g);
+
+    if (numerosStrings) {
+      numeros = numerosStrings.map((numStr: any) => parseInt(numStr));
+    }
     try {
       //salvando a venda
       const sqlVenda = `INSERT INTO VENDA 
@@ -59,8 +67,8 @@ export class CompraController {
             if (resultTicket && resultTicket.length > 0) {
               const idTicket = resultTicket[0][0];
               //sql mapa de assentos
-              //const sqlMapa = `UPDATE MAPA_ASSENTO SET STATUS = 'ocupado', ID_TICKET = '${idTicket}' WHERE ID_MAPA_ASSENTO = '${assentos}' `;
-              //executarSql(sqlMapa, [], "Mapa de assentos");
+              const sqlMapa = `UPDATE MAPA_ASSENTO SET STATUS = 'ocupado', ID_TICKET = '${idTicket}' WHERE ID_MAPA_ASSENTO = '${numeros}' `;
+              executarSql(sqlMapa, [], "Mapa de assentos");
             }
           }
         }
