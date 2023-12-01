@@ -3,4 +3,4 @@ import { BilheteController } from "../controllers/BilheteController";
 
 export const routerBilhete = express.Router();
 
-routerBilhete.get("/boardingPass", BilheteController.boardingPass);
+routerBilhete.get("/boardingPass/:id", BilheteController.boardingPass);

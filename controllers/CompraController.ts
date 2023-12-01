@@ -49,7 +49,7 @@ export class CompraController {
         );
 
         if (resultVenda && resultVenda.length > 0) {
-          const idVenda = resultVenda[0][0];
+          var idVenda = resultVenda[0][0];
           //salvar o ticket
           const sqlTicket = `INSERT INTO TICKET(ID_TICKET,ID_VENDA,ID_VOO,NOME,EMAIL,TELEFONE,CPF)
           VALUES (SEQ_TICKET.NEXTVAL,:1,:2,:3,:4,:5,:6)`;
@@ -78,7 +78,6 @@ export class CompraController {
     } catch (error) {
       console.log(error);
     }
-
-    res.render("bilhete/boardingPass");
+    res.redirect(`/boardingPass/${idVenda}`);
   }
 }

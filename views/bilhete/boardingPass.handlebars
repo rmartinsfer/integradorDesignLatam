@@ -1,5 +1,5 @@
 <div class="container-boarding">
-  <div class="boarding-pass">
+  <div class="boarding-pass" id="imprimir-pdf">
     <div class="section left-section">
       <div class="airline-logo">Airline</div>
       <div class="board-info">
@@ -30,3 +30,12 @@
   </div>
   <button type="button" id="btnImprimir" class="search-button">Imprimir</button>
 </div>
+<script>
+  const btnGenerate=document.querySelector("#btnImprimir");
+  btnGenerate.addEventListener("click",()=>{ const
+  content=document.querySelector("#imprimir-pdf"); const options={
+  margin:[10,10,10,10], filename:"bilhete.pdf", html2canvas:{scale:2},
+  jsPDF:{unit:"mm",format:"a4",orientation:"portrait"}, };
+  html2pdf().set(options).from(content).save(); })
+
+</script>
