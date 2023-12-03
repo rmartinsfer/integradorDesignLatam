@@ -6,22 +6,15 @@
       <div class="dropdown-row">
         <select class="dropdown" name="tipo" id="trip-type-dropdown">
           <option>Só ida</option>
-        </select>
-        {{! <select class="dropdown">
-          <option>Economy</option>
-          <option>Business</option>
-        </select> }}
-        <select class="dropdown" name="qtdePassagem">
-          <option>1 passageiro</option>
-          {{! <option>2 passageiros</option> }}
+          <option>Ida e volta</option>
         </select>
       </div>
       <div class="input-row">
-        <input type="text" name="origem" placeholder="Origem" />
-        <input type="text" name="destino" placeholder="Destino" />
+        <input type="text" name="origem" placeholder="Origem" required/>
+        <input type="text" name="destino" placeholder="Destino" required/>
         <button type="button" class="search-button" id="buscarTrechoButton">Buscar Trecho</button>
         <input type="date" name="dataIda" />
-        {{! <input type="text" id="return-date" placeholder="Data da Volta" /> }}
+        <input type="date" id="dataVolta" name="dataVolta" />
         <button class="search-button">Procurar</button>
       </div>
       </form>
@@ -29,3 +22,20 @@
     </div>
   </div>
 </div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  const idaVolta = document.getElementById("trip-type-dropdown");
+  const dataVolta = document.getElementById("dataVolta");
+
+  if (idaVolta) {
+    idaVolta.addEventListener("change", function () {
+      if (idaVolta.value === "Ida e volta") {
+        dataVolta.style.display = "block";
+      } else {
+        dataVolta.style.display = "none";
+      }
+    });
+  }
+});
+
+</script>

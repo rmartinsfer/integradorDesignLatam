@@ -45,7 +45,9 @@ button {
   margin-left: auto;
   margin-right: auto;
 }
-
+#dataVolta {
+  display: none;
+}
 .dropdown-row,
 .input-row {
   display: flex;

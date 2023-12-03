@@ -40,7 +40,12 @@ export class VooController {
   static async resultsVoos(req: Request, res: Response) {
     const idTrecho = req.params.id;
     const data = req.query.dataIda;
-
+    const dataVolta = req.query.dataVolta;
+    if (dataVolta != undefined) {
+      console.log("entrou aqui");
+    } else {
+      console.log("dasdasd");
+    }
     try {
       const sql = `SELECT 
       v.ID_VOO,
@@ -151,7 +156,6 @@ export class VooController {
       console.log(error);
     }
   }
-
   static async escolhaPoltrona(req: Request, res: Response) {
     const idVoo = req.params.id;
     const sql = `select * from mapa_assento where id_voo = ${idVoo}`;
