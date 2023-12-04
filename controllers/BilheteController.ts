@@ -65,10 +65,12 @@ export class BilheteController {
           const mailOptions = {
             from: `Urubu Airlines <${process.env.USER_MAIL}>`,
             to: item.email,
-            subject: "Obrigado por escolher a Urubu Airlines",
-            html: `<h2>Detalhes do seu Voo</h2>
+            subject: "Obrigado por escolher a UrubuAirlines",
+            html: `
+            <p>Obrigado ${item.nome} por escolher viajar com a UrubuAirlines</p>
+            <h3>Detalhes do seu Voo!!</h3>
             <div>
-              <strong>ID do Voo:</strong> <span>${item.idVoo}</span>
+              <strong>Voo:</strong> <span>${item.idVoo}</span>
             </div>
             <div>
               <strong>Partida:</strong> <span>${item.origem}</span>
@@ -81,7 +83,9 @@ export class BilheteController {
             </div>
             <div>
               <strong>Horário de Saída:</strong> <span>${item.horaSaida}</span>
-            </div>`,
+            </div>
+            <p>Não esqueça de levar seus <strong>documentos</strong> para fazer o seu check-in</p>
+            `,
           };
           if (await transport.sendMail(mailOptions)) {
             console.log("Email enviado com sucesso!");
