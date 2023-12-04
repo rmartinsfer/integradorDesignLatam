@@ -37,32 +37,34 @@
   </div>
 {{/each}}
 
-<div class="container">
-  <div class="column">
-    <div class="airplane">
-      <h2>Airbus 321</h2>
-      <div class="seating-chart" id="seating-chart">
-        <div class="control-grid">
-          {{#each mapa}}
-            {{#if this.ocupado}}
-              <button class="seat ocupado" disabled>
-                {{this.referencia}}
-              </button>
-            {{else}}
-              <button
-                class="seat"
-                id="{{this.idMapa}}"
-                onclick="mudarCorPoltrona(this)"
-                name="poltronaEscolhida"
-              >
-                {{this.referencia}}
-              </button>
-            {{/if}}
-          {{/each}}
-        </div>
+<div class="container-teste">
+
+  <div class="airplane">
+    {{#each voo}}
+      <h2>Código {{this.idVoo}}</h2>
+    {{/each}}
+    <div class="seating-chart" id="seating-chart">
+      <div class="control-grid">
+        {{#each mapa}}
+          {{#if this.ocupado}}
+            <button class="seat ocupado" disabled>
+              {{this.referencia}}
+            </button>
+          {{else}}
+            <button
+              class="seat"
+              id="{{this.idMapa}}"
+              onclick="mudarCorPoltrona(this)"
+              name="poltronaEscolhida"
+            >
+              {{this.referencia}}
+            </button>
+          {{/if}}
+        {{/each}}
       </div>
     </div>
   </div>
+
 </div>
 
 <section class="flight-selection">

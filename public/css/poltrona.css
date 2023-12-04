@@ -69,9 +69,10 @@ button {
 }
 /*Espaco entre o aviao e o ticket */
 .airplane {
-  margin-left: 250px;
-  margin-right: 250px;
+  margin-left: 10px;
+  margin-right: 10px;
   text-align: center;
+  margin-top: 4rem;
 }
 
 /*Desenho do aviao */
@@ -80,14 +81,16 @@ button {
   width: 1800px;
   grid-template-columns: 4fr;
   height: auto;
-  background-color: #f2f2f2; /* Cor de fundo */
-  border: 5px solid black; /* Borda */
+  background-color: rgba(224, 221, 221, 0.5); /* Cor de fundo */
+  border: 5px solid rgba(224, 221, 221, 0.8); /* Borda */
   padding: 50px 50px 50px 40px;
-  border-top-left-radius: 45%; /* Raio da borda superior esquerda */
-  border-bottom-left-radius: 45%; /* Raio da borda superior direita */
-  box-shadow: 0 4px 8px rgba(17, 15, 15, 0.1); /* Sombra */
+  box-shadow: 0 4px 8px rgba(214, 210, 210, 0.1); /* Sombra */
 }
-
+.container-teste {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .row {
   display: flex;
   justify-content: center;
@@ -113,7 +116,7 @@ button {
   background-color: #7abd38; /* Cor ao clicar no botão */
 }
 .seat.ocupado {
-  background-color: red;
+  background-color: rgb(228, 65, 65);
 }
 .aisle {
   width: 20px;
