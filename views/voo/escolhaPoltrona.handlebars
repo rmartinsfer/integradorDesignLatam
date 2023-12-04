@@ -67,18 +67,26 @@
 
 </div>
 
+<div class="legenda">
+    <div class="legenda-icon-branco"></div>
+    <p>Disponível</p>
+    <div class="legenda-icon-vermelho"></div>
+    <p>Ocupado</p>
+    <div class="legenda-icon-verde"></div>
+    <p>Selecionado</p>
+</div>
+
 <section class="flight-selection">
   <!-- Aqui você pode inserir detalhes adicionais da seleção do voo, se necessário -->
   {{#each voo}}
     <div class="route-info">
       <div>{{this.origem}} a {{this.destino}}</div>
-      {{!-- <div>{{this.destino}} a {{this.origem}} </div> --}}
-    </div>
   {{/each}}
   {{#each voo}}
     <form action="/purchase/{{this.idVoo}}" id="purchaseForm" method="GET">
       <button class="choose-later-btn">Confirmar Assento(s)</button>
     </form>
+    </div>
   {{/each}}
 </section>
 
